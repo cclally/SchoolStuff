@@ -1,6 +1,6 @@
 #Chase Lally
 #02/11/16
-#Vignere Cipher Example in Python 3.4
+#Vignere Cipher Example in Python 3.4       #This is more of a ECB(Electronic Code Block) Encryption Example. These encryptions are incredibly out-datted
 #Incredibly ineffecient script with multiple string , and int declares that definitely could have been shortened
 #     but you should get the idea on how this works.
 
