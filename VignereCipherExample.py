@@ -4,7 +4,7 @@
 #Incredibly ineffecient script with multiple string , and int declares that definitely could have been shortened
 #     but you should get the idea on how this works.
 
-originKey = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ,.-_") # Origing Key from Modulus base 30
+originKey = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ,.-_ ") # Origin Key from Modulus base 30
 text = input('Enter Plain Text: ')
 plainText = list(text.upper())  # Uppercase the plainText to compare with the originKey
 lowkey = input('Enter Key for Cipher: ')
@@ -24,14 +24,18 @@ for index in range(len(plainText)):  #scales the entire list
     b = key[i] 
     key.remove(b) # just removes the point 0 from the array at that point and repopulates the list from its following element until empty.
     ki = originKey.index(b)
-    cKNum = pTi + ki # adds the two values into cKNum to determine the CipherCharacter.
-    if (cKNum > 29): #breaks in here if it goes out of bounds of the originKey and then decrements 30 to start over along the array of elements.
-        cKNum -= 30
+    cKNum = (pTi + ki)%30 # adds the two values into cKNum to determine the CipherCharacter.
+    #if (cKNum > 29): #breaks in here if it goes out of bounds of the originKey and then decrements 30 to start over along the array of elements.
+       # cKNum -= 30
     c = originKey[cKNum]
     cipherText.insert(index, c) #slowly adding the new cipherCharacter in to the character array at that current index.
+    print("This is the length of Cipher text")
+    print(len(cipherText))
     k -= 1 # break into the if once the key goes through 10 iterations, and then re-supply part of the cipherText as a new block of the key.
     if (k == 0):
-        while (k != len(cipherText)): 
+        while ((k != len(cipherText)) & (j < len(cipherText)) ):
+            print("This is the index number for replace:") 
+            print(j)
             d = cipherText[j]
             key.insert(k, d)
             j += 1
